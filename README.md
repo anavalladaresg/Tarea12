@@ -34,3 +34,21 @@ ALTER TABLE IF EXISTS public."EmpresasFCT"
 ```
 
 ![Creación tabla](img/1.png)
+
+## 2️⃣ Apartado 2
+
+Inserta 5 registros inventados en la tabla mediante una sentencia SQL.
+
+```sql
+INSERT INTO public."EmpresasFCT" ("nombre", "quiereAlumnos", "numAlumnos", "fechaContacto")
+VALUES ('Empresa 1', true, 5, '2025-01-30'),
+       ('Empresa 2', false, 0, '2025-01-29'),
+       ('Empresa 3', true, 3, '2025-01-28'),
+       ('Empresa 4', false, 0, '2025-01-27'),
+       ('Empresa 5', true, 2, '2025-01-26');
+```
+
+<p align="center">
+  <img src="img/2.png" alt="Inserción registros" width="49%" />
+  <img src="img/3.png" alt="Registros insertados" width="49%" />
+</p>
