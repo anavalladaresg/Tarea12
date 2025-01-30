@@ -80,3 +80,21 @@ where "city" = 'Tracy';
 
 ![Consulta](img/5.png)
 
+## 5️⃣ Apartado 5
+
+Utilizando las tablas de odoo, obtén un listado de empresas proveedoras, que han
+emitido algún reembolso (facturas recticativas de proveedor)
+- Nombre de la empresa
+- Número de factura
+- Fecha de la factura
+- Total factura SIN impuestos
+Ordenadas por fecha de factura de modo que la primera sea la más reciente.
+
+```sql
+select "invoice_partner_display_name", "name", "invoice_date", "amount_untaxed"
+from public.account_move
+where "move_type" = 'out_refund'
+order by "invoice_date" desc;
+```
+
+![Consulta](img/6.png)
