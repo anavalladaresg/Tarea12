@@ -62,3 +62,21 @@ select * from public."EmpresasFCT" order by "fechaContacto" desc;
 ```
 
 ![Consulta](img/4.png)
+
+## 4️⃣ Apartado 4
+
+Realiza una consulta que obtenga un listado de todos los contactos de Odoo (no empresas) con la siguiente información:
+- Nombre
+- Ciudad: Tracy
+- Nombre comercial de la empresa
+
+Ordenados alfabéticamente por el nombre comercial de la empresa.
+
+```sql
+select "name", "city", "commercial_company_name" 
+from public.res_partner 
+where "city" = 'Tracy';
+```
+
+![Consulta](img/5.png)
+
