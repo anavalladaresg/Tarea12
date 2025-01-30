@@ -91,10 +91,14 @@ emitido algún reembolso (facturas recticativas de proveedor)
 Ordenadas por fecha de factura de modo que la primera sea la más reciente.
 
 ```sql
-select "invoice_partner_display_name", "name", "invoice_date", "amount_untaxed"
-from public.account_move
-where "move_type" = 'out_refund'
-order by "invoice_date" desc;
+SELECT DISTINCT ON ("invoice_partner_display_name") 
+    "invoice_partner_display_name", 
+    "name", 
+    "invoice_date", 
+    "amount_untaxed"
+FROM public.account_move
+WHERE "move_type" = 'out_refund'
+ORDER BY "invoice_partner_display_name", "invoice_date" DESC;
 ```
 
 ![Consulta](img/6.png)
