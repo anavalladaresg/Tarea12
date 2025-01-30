@@ -52,3 +52,13 @@ VALUES ('Empresa 1', true, 5, '2025-01-30'),
   <img src="img/2.png" alt="Inserción registros" width="49%" />
   <img src="img/3.png" alt="Registros insertados" width="49%" />
 </p>
+
+## 3️⃣ Apartado 3
+
+Realiza una consulta que muestre todos los datos de la tabla `EmpresasFCT` ordenados por `fechaContacto`, de modo que el registro con la fecha más reciente aparezca primero.
+
+```sql
+select * from public."EmpresasFCT" order by "fechaContacto" desc;
+```
+
+![Consulta](img/4.png)
