@@ -32,6 +32,7 @@ TABLESPACE pg_default;
 ALTER TABLE IF EXISTS public."EmpresasFCT"
     OWNER to odoo;
 ```
+***🖼️ Captura de pantalla:***
 
 ![Creación tabla](img/1.png)
 
@@ -47,7 +48,7 @@ VALUES ('Empresa 1', true, 5, '2025-01-30'),
        ('Empresa 4', false, 0, '2025-01-27'),
        ('Empresa 5', true, 2, '2025-01-26');
 ```
-
+***🖼️ Captura de pantalla:***
 <p align="center">
   <img src="img/2.png" alt="Inserción registros" width="49%" />
   <img src="img/3.png" alt="Registros insertados" width="49%" />
@@ -60,6 +61,7 @@ Realiza una consulta que muestre todos los datos de la tabla `EmpresasFCT` orden
 ```sql
 select * from public."EmpresasFCT" order by "fechaContacto" desc;
 ```
+***🖼️ Captura de pantalla:***
 
 ![Consulta](img/4.png)
 
@@ -77,6 +79,7 @@ select "name", "city", "commercial_company_name"
 from public.res_partner 
 where "city" = 'Tracy';
 ```
+***🖼️ Captura de pantalla:***
 
 ![Consulta](img/5.png)
 
@@ -100,6 +103,7 @@ FROM public.account_move
 WHERE "move_type" = 'out_refund'
 ORDER BY "invoice_partner_display_name", "invoice_date" DESC;
 ```
+***🖼️ Captura de pantalla:***
 
 ![Consulta](img/6.png)
 
@@ -124,6 +128,7 @@ GROUP BY "invoice_partner_display_name"
 HAVING COUNT("id") > 2  -- Empresas con más de 2 facturas
 ORDER BY SUM("amount_untaxed") DESC;
 ```
+***🖼️ Captura de pantalla:***
 
 ![Consulta](img/7.png)
 
@@ -136,6 +141,7 @@ UPDATE public.res_partner
 SET "email" = replace("email", '@bilbao.example.com', '@bilbao.bizkaia.eus')
 WHERE "email" LIKE '%@bilbao.example.com';
 ```
+***🖼️ Captura de pantalla:***
 
 ![Actualización](img/8.png)
 
@@ -154,5 +160,6 @@ WHERE "company_id" IN (
 )
 AND "is_company" = FALSE;  -- Solo elimina contactos, no la empresa
 ```
+***🖼️ Captura de pantalla:***
 
 ![Antes](img/9.png)
