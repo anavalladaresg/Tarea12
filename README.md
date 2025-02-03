@@ -92,17 +92,20 @@ emitido algún reembolso (facturas recticativas de proveedor)
 - Número de factura
 - Fecha de la factura
 - Total factura SIN impuestos
+  
 Ordenadas por fecha de factura de modo que la primera sea la más reciente.
 
 ```sql
-SELECT DISTINCT ON ("invoice_partner_display_name") 
-    "invoice_partner_display_name", 
-    "name", 
-    "invoice_date", 
-    "amount_untaxed"
+SELECT 
+    res_partner."name", 
+    account_move."name", 
+    account_move."invoice_date", 
+    account_move."amount_untaxed"
 FROM public.account_move
-WHERE "move_type" = 'out_refund'
-ORDER BY "invoice_partner_display_name", "invoice_date" DESC;
+JOIN public.res_partner ON account_move."partner_id" = res_partner."id"
+WHERE account_move."move_type" = 'in_refund'
+AND res_partner."is_company" = TRUE
+ORDER BY account_move."invoice_date" DESC;
 ```
 ***🖼️ Captura de pantalla:***
 
