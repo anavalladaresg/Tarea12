@@ -77,7 +77,8 @@ Ordenados alfabéticamente por el nombre comercial de la empresa.
 ```sql
 select "name", "city", "commercial_company_name" 
 from public.res_partner 
-where "city" = 'Tracy';
+where "city" = 'Tracy'
+order by "name";
 ```
 ***🖼️ Captura de pantalla:***
 
