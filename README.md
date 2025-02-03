@@ -139,11 +139,12 @@ ORDER BY SUM("amount_untaxed") DESC;
 ## 7️⃣ Apartado 7
 
 Crea una sentencia que actualice el correo de los contactos cuyo dominio es @bilbao.example.com a @bilbao.bizkaia.eus
+En este apartado he tenido un problema de que no tenía ningún contacto cuyo dominio fuera `@bilbao.example.com`, por lo que he tenido que cambiar el dominio de un contacto para que lo tuviera.
 
 ```sql
-UPDATE public.res_partner
-SET "email" = replace("email", '@bilbao.example.com', '@bilbao.bizkaia.eus')
-WHERE "email" LIKE '%@bilbao.example.com';
+UPDATE res_partner
+SET email = '@bilbao.bizkaia.eus'
+WHERE email like '%@bilbao.example.com';
 ```
 ***🖼️ Captura de pantalla:***
 
@@ -159,11 +160,15 @@ después.
 
 ```sql
 DELETE FROM public.res_partner
-WHERE "company_id" IN (
-    SELECT "id" FROM public.res_company WHERE "name" = 'Ready Mat'
-)
-AND "is_company" = FALSE;  -- Solo elimina contactos, no la empresa
+WHERE "commercial_company_name" = 'Ready Mat'
+AND "is_company" = FALSE;
 ```
-***🖼️ Captura de pantalla:***
+***🖼️ Capturas de pantalla:***
 
-![Antes](img/9.png)
+![Código](img/9.png)
+
+<p align="center">
+  <img src="img/10.png" alt="Antes" width="49%" />
+  <img src="img/11.png" alt="Después" width="49%" />
+</p>
+
