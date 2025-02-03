@@ -138,3 +138,21 @@ WHERE "email" LIKE '%@bilbao.example.com';
 ```
 
 ![Actualización](img/8.png)
+
+## 8️⃣ Apartado 8
+
+La empresa Ready Mat ha hecho un ERE y ha despedido a todos los empleados
+que tenías como contacto. Crea una sentencia que elimine todos los contactos
+pertenecientes a la empresa “Ready Mat”, pero mantén la empresa. Añade una
+captura de pantalla de la sección de contactos de odoo con Ready Mat antes y
+después.
+
+```sql
+DELETE FROM public.res_partner
+WHERE "company_id" IN (
+    SELECT "id" FROM public.res_company WHERE "name" = 'Ready Mat'
+)
+AND "is_company" = FALSE;  -- Solo elimina contactos, no la empresa
+```
+
+![Antes](img/9.png)
