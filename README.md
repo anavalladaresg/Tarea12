@@ -126,3 +126,15 @@ ORDER BY SUM("amount_untaxed") DESC;
 ```
 
 ![Consulta](img/7.png)
+
+## 7️⃣ Apartado 7
+
+Crea una sentencia que actualice el correo de los contactos cuyo dominio es @bilbao.example.com a @bilbao.bizkaia.eus
+
+```sql
+UPDATE public.res_partner
+SET "email" = replace("email", '@bilbao.example.com', '@bilbao.bizkaia.eus')
+WHERE "email" LIKE '%@bilbao.example.com';
+```
+
+![Actualización](img/8.png)
