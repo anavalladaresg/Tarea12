@@ -102,3 +102,27 @@ ORDER BY "invoice_partner_display_name", "invoice_date" DESC;
 ```
 
 ![Consulta](img/6.png)
+
+## 6️⃣ Apartado 6
+
+Utilizando las tablas de odoo, obtén un listado de empresas clientes, a las que se les
+ha emitido más de dos facturas de venta (solo venta) confirmadas, mostrando los
+siguientes datos:
+- Nombre de la empresa
+- Número de facturas 
+- Total facturado SIN IMPUESTOS
+
+```sql
+SELECT 
+    "invoice_partner_display_name", 
+    COUNT("id"), 
+    SUM("amount_untaxed")
+FROM public.account_move
+WHERE "move_type" = 'out_invoice'  -- Solo facturas de venta
+AND "state" = 'posted'  -- Solo facturas confirmadas
+GROUP BY "invoice_partner_display_name"
+HAVING COUNT("id") > 2  -- Empresas con más de 2 facturas
+ORDER BY SUM("amount_untaxed") DESC;
+```
+
+![Consulta](img/7.png)
